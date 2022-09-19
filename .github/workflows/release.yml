@@ -5,6 +5,17 @@ on:
     tags:
       - 'v*'
   workflow_dispatch:
+    inputs:
+      mood:
+        description: 'How are you feeling today?'
+        required: true
+        default: 'lazy'
+        type: choice
+        options:
+          - happy
+          - sad
+          - annoyed
+          - lazy
 
 jobs:
   release:
