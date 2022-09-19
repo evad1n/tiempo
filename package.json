@@ -139,10 +139,10 @@
     "svgs:react:icons": "ts-node ./svgReact/icons",
     "start": "yarn build-storybook && yarn storybook",
     "storybook": "start-storybook -p 6006 --no-open",
-    "version:patch": "yarn build && npm version patch -m 'Bump version %s' && yarn tags:delete && yarn tags:push",
-    "version:minor": "yarn build && npm version minor -m 'Bump version %s' && yarn tags:delete && yarn tags:push",
-    "version:major": "yarn build && npm version major -m 'Bump version %s' && yarn tags:delete && yarn tags:push",
+    "version:patch": "yarn tags:delete && yarn build && npm version patch -m 'Bump version %s'  && yarn tags:push",
+    "version:minor": "yarn tags:delete && yarn build && npm version minor -m 'Bump version %s'  && yarn tags:push",
+    "version:major": "yarn tags:delete && yarn build && npm version major -m 'Bump version %s'  && yarn tags:push",
     "tags:delete": "git tag -d $(git tag -l)",
-    "tags:push": "git push --follow-tags"
+    "tags:push": "git push origin $(git rev-parse --abbrev-ref HEAD) --follow-tags"
   }
 }
